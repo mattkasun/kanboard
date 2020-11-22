@@ -1,6 +1,11 @@
 Kanboard
 ========
 
+Changes
+-------
+cloned from kanboard/kanboard
+added script to deploy in lxd/lxc container vice docker
+
 Kanboard is project management software that focuses on the Kanban methodology.
 
 - Official website: <https://kanboard.org/>
