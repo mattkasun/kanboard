@@ -1,0 +1,8 @@
+#!/bin/bash
+#git clone https://github.com/mattkasun/kanboard.git
+lxc launch images:alpine/3.12 kanboard
+lxc file push -r -v -p ./kanboard/docker/* kanboard/ 
+lxc config device add kanboard port8080 proxy listen=tcp:0.0.0.0:8080 connect=tcp:127.0.0.1:80
+lxc config device add kanboard port4430 proxy listen=tcp:0.0.0.0:4430 connect=tcp:127.0.0.1:443
+lxc file push -r -v -p ./setup.sh kanboard/root/
+lxc exec kanboard -- /root/setup.sh
